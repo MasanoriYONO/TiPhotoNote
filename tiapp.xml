@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="acs-oauth-secret-production" type="string">FM6sVcvkJItx0JI7anDVaT77ZChGYrUO</property>
+    <property name="acs-oauth-key-production" type="string">Act99gPQtp9SuQlANGSjLmjQ7e00T8YH</property>
+    <property name="acs-api-key-production" type="string">uOfRP76k3h4NFvDRdzR4zsnzokXQTGzz</property>
+    <property name="acs-oauth-secret-development" type="string">htjf6a5uZF04HX5F4BTNwVVbTeqAMtAk</property>
+    <property name="acs-oauth-key-development" type="string">8wKGb5sCz4P7rOLzYA9WtmAfMxnoGZ29</property>
+    <property name="acs-api-key-development" type="string">d31MVm9bgYGn0JZoHQQ7biwTDcRLPVTd</property>
+    <deployment-targets>
+        <target device="mobileweb">false</target>
+        <target device="iphone">true</target>
+        <target device="ipad">false</target>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+    </deployment-targets>
+    <sdk-version>2.1.4.GA</sdk-version>
+    <id>net.masanoriyono.TiPhotoNote</id>
+    <name>TiPhotoNote</name>
+    <version>1.0</version>
+    <publisher>Masanori YONO</publisher>
+    <url>http://www.masanoriyono.net/</url>
+    <description>not specified</description>
+    <copyright>2012 by yono</copyright>
+    <icon>appicon.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>false</statusbar-hidden>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>759cb100-2209-421c-b0fe-f137cd151859</guid>
+    <property name="ti.ui.defaultunit">system</property>
+    <iphone>
+        <orientations device="iphone">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+        </orientations>
+        <orientations device="ipad">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+        </orientations>
+    </iphone>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs" version="2.3.0">ti.cloud</module>
+    </modules>
+</ti:app>

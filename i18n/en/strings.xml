@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="menu_text">menu</string>
+    <string name="capture_menu_text">capture</string>
+    <string name="date_list_menu_text">date list</string>
+    <string name="date_list_with_memo">list with photo memo</string>
+    <string name="date_group_list">group by date list</string>
+    <string name="memo_title_text">photo memo</string>
+    <string name="delete_message_text"> record delete complete.</string>
+    <string name="memo_search_hint_text">photo memo search</string>
+    <string name="date_search_hint_text">date search</string>
+    <string name="add_photogallery_message_text">add camera roll.</string>
+	<string name="memo_save_text">save memo</string>
+	<string name="memo_close_text">close</string>
+    <string name="memo_update_message_text"> record update complete.</string>
+    <string name="photo2gallery">all photos copy to camera roll</string>
+    <string name="photo2gallery_dialog">It takes a long time to copy photos.</string>
+    <string name="photo2gallery_no_photo">no photo.</string>
+    <string name="delete_text">all photos and memo remove</string>
+    <string name="delete_dialog">Are you continue?</string>
+    <string name="delete_dialog_again_title">Final Confirmation</string>
+    <string name="delete_dialog_again">All photos and memo will be removed.\nAre you continue?</string>
+    <string name="delete_complete">delete complete.</string>
+    <string name="data_operation_header">data operation</string>
+    <string name="data_list_header">list view</string>
+    <string name="coverflow_header">view all</string>
+    <string name="capture_header">take a picture</string>
+</resources>

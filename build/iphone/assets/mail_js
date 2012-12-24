@@ -1,0 +1,4 @@
+var win=Ti.UI.currentWindow;var alert_dialog=Ti.UI.createAlertDialog({title:win.title,message:''});var emailDialog=Ti.UI.createEmailDialog();Ti.API.debug(win.title+' action:');if(!emailDialog.isSupported()){Ti.API.debug(win.title+' action:Email not available.');alert_dialog.message='Email not available';alert_dialog.show();return;}
+emailDialog.setSubject(win.title);emailDialog.setToRecipients(['myono.c50@gmail.com']);if(Ti.Platform.name=='iPhone OS'){emailDialog.setMessageBody('<b>'+win.title+'</b>');emailDialog.setHtml(true);emailDialog.setBarColor('#336699');}else{emailDialog.setMessageBody(win.title);}
+emailDialog.addAttachment(image_file);emailDialog.addEventListener('complete',function(e)
+{if(e.result==emailDialog.SENT){if(Ti.Platform.osname!='android'){alert_dialog.message='message was sent';alert_dialog.show();}}else{alert("message was not sent. result = "+e.result);}});emailDialog.open();

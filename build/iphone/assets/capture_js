@@ -1,0 +1,30 @@
+var win=Ti.UI.currentWindow;var alert_dialog=Ti.UI.createAlertDialog({title:win.title,message:''});var scrollView=Ti.UI.createScrollView({contentWidth:'auto',contentHeight:'auto',top:0,bottom:0,backgroundColor:'gray',showVerticalScrollIndicator:true,showHorizontalScrollIndicator:true,maxZoomScale:10,minZoomScale:0.15});var imageView=Ti.UI.createImageView({width:'auto',height:'auto',top:0,left:0});var actInd=Ti.UI.createActivityIndicator({bottom:10,height:50,width:10,style:Ti.UI.iPhone.ActivityIndicatorStyle.PLAIN});function zero_pad(v){var rel="00"+v;return rel.slice(-2);}
+function startCamera(){win.toolbar=[];var cap_image=null;Ti.Media.showCamera({success:function(event){cap_image=event.media;var date=new Date();Ti.API.debug('getFullYear:'+date.getFullYear()
++' getMonth:'+zero_pad(date.getMonth()+1)
++' getDate:'+zero_pad(date.getDate())
++' getHours:'+zero_pad(date.getHours())
++' getMinutes:'+zero_pad(date.getMinutes())
++' getSeconds:'+zero_pad(date.getSeconds()));var reg_date=date.getFullYear()+'-'+
+zero_pad(date.getMonth()+1)+'-'+
+zero_pad(date.getDate());var reg_time=zero_pad(date.getHours())+':'+
+zero_pad(date.getMinutes())+':'+
+zero_pad(date.getSeconds());var reg_date_time=date.getFullYear()+
+zero_pad(date.getMonth()+1)+
+zero_pad(date.getDate())+
+zero_pad(date.getHours())+
+zero_pad(date.getMinutes())+
+zero_pad(date.getSeconds());imageView.image=cap_image;if(imageView.size.width<imageView.size.height){scrollView.zoomScale=0.267;}else{scrollView.zoomScale=0.2;}
+var f=Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,reg_date_time+'.jpg');f.write(cap_image);if(imageView.size.width<imageView.size.height){scrollView.zoomScale=0.267;var thumb_image=cap_image.imageAsResized(75,100);}else{scrollView.zoomScale=0.2;var thumb_image=cap_image.imageAsResized(100,75);}
+var thumbnail_file=Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,reg_date_time+'.png');thumbnail_file.write(thumb_image);var db=Ti.Database.open('image.db');db.execute('INSERT INTO t_image (filename,entry_date,entry_time) VALUES(?,?,?)',reg_date_time+'.jpg',reg_date,reg_time);db.close();actInd.message=null;actInd.hide();win.toolbar=[compose];thumb_image=null;},error:function(error){var a=Ti.UI.createAlertDialog({title:'Camera'});if(error.code==Ti.Media.NO_CAMERA)
+{a.setMessage('Please run this test on device');}
+else
+{a.setMessage('Unexpected error: '+error.code);}
+a.show();},saveToPhotoGallery:false,allowEditing:false,mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO]});}
+var bb=Ti.UI.createButton({systemButton:Ti.UI.iPhone.SystemButton.CAMERA});bb.addEventListener('click',function(e)
+{startCamera();});var compose=Ti.UI.createButton({systemButton:Ti.UI.iPhone.SystemButton.COMPOSE});compose.addEventListener('click',function()
+{var db=Ti.Database.open('image.db');var rows=db.execute('SELECT max(id) AS maxid FROM t_image');while(rows.isValidRow()){var image_id=rows.fieldByName('maxid');rows.next();}
+rows.close();db.close();var messageWindow=Ti.UI.createWindow({url:'message_window.js',title:L("memo_title_text"),image_id:image_id,backgroundColor:'#fff'});Ti.UI.currentTab.open(messageWindow,{animated:true});});win.addEventListener('focus',function(e)
+{Ti.API.debug(win.title+' focus.');Ti.API.debug(win.title+' focus. imageView:'+typeof(imageView));});win.addEventListener('blur',function(e)
+{Ti.API.debug(win.title+' blur.');});win.addEventListener('open',function(e)
+{Ti.API.debug(win.title+' open.');scrollView.add(imageView);win.add(scrollView);win.setRightNavButton(bb);startCamera();});win.addEventListener('close',function(e)
+{Ti.API.debug(win.title+' close.');});

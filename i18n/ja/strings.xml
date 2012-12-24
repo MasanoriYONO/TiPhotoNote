@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="menu_text">メニュー</string>
+    <string name="capture_menu_text">撮る</string>
+    <string name="date_list_menu_text">日付一覧</string>
+    <string name="date_list_with_memo">メモあり一覧</string>
+    <string name="date_group_list">日付別</string>
+    <string name="memo_title_text">写真メモ</string>
+    <string name="delete_message_text">件のメモを削除しました。</string>
+    <string name="memo_search_hint_text">メモを検索</string>
+    <string name="date_search_hint_text">日付を検索</string>
+    <string name="add_photogallery_message_text">カメラロールへ追加しました。</string>
+	<string name="memo_save_text">メモを保存</string>
+	<string name="memo_close_text">閉じる</string>
+    <string name="memo_update_message_text">件のメモを更新しました。</string>
+    <string name="photo2gallery">すべての写真をカメラロールへコピー</string>
+    <string name="photo2gallery_dialog">処理に時間がかかります。\n続けるなら[OK]を押してください。</string>
+    <string name="photo2gallery_no_photo">写真はありません。</string>
+    <string name="delete_text">すべての写真とメモを削除</string>
+    <string name="delete_dialog">実行していいですか？</string>
+    <string name="delete_dialog_again_title">最終確認</string>
+    <string name="delete_dialog_again">すべての写真とメモを削除します。\n本当に実行していいですか？</string>
+    <string name="data_operation_header">データ操作</string>
+    <string name="data_list_header">リスト表示</string>
+    <string name="coverflow_header">一覧</string>
+    <string name="capture_header">撮影</string>
+</resources>
