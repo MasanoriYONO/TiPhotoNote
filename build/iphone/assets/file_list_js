@@ -1,6 +1,0 @@
-var win=Ti.UI.currentWindow;var dir=Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory);var filesArray=dir.getDirectoryListing();var data=[];var db_array=[];for(var i=0;i<filesArray.length;i++){var file=Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,filesArray[i]);var t_data=Ti.UI.createTableViewRow({title:file.name});data.push(t_data);}
-var tableview=Ti.UI.createTableView({data:data,editable:true,allowsSelectionDuringEditing:true});tableview.addEventListener('click',function(e)
-{var index=e.index;var section=e.section;var row=e.row;var rowdata=e.rowData;});tableview.addEventListener('delete',function(e)
-{var s=e.section;var image_file=Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,e.rowData.title);image_file.deleteFile();});win.add(tableview);var edit=Ti.UI.createButton({title:'Edit'});edit.addEventListener('click',function()
-{win.setRightNavButton(cancel);tableview.editing=true;});var cancel=Ti.UI.createButton({title:'Cancel',style:Ti.UI.iPhone.SystemButtonStyle.DONE});cancel.addEventListener('click',function()
-{win.setRightNavButton(edit);tableview.editing=false;});win.setRightNavButton(edit);

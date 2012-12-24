@@ -1,1 +1,0 @@
-Ti.UI.setBackgroundColor('#fff');var tabGroup=Ti.UI.createTabGroup({barColor:'#999'});var win1=Ti.UI.createWindow({url:'table_view2.js',title:L("menu_text"),backgroundColor:'#fff'});var tab1=Ti.UI.createTab({icon:'KS_nav_views.png',title:L("menu_text"),window:win1});win1.hideTabBar();tabGroup.addTab(tab1);tabGroup.open();
